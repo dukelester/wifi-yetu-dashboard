@@ -23,5 +23,5 @@ urlpatterns = [
     path('',index,name='index'),
     path('index',index,name='index'),
 
-    path('oauth/', include('social_django.urls', namespace='social'))
+    path('social-auth', include('social_django.urls', namespace='social')),
 ]
