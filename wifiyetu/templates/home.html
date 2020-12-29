@@ -91,9 +91,15 @@
 <!--                    </li>-->
 
                     {% if request.user.is_authenticated %}
+
                         <li class="nav-item"><a class="nav-link js-scroll-trigger body-text waves-effect waves-light"
                                                     style="border: 1px solid #848484;" href="{% url 'logout' %}">logout</a>
                             </li>
+
+                 <li class="nav-item"><a class="nav-link js-scroll-trigger body-text waves-effect waves-light"
+                                                    style="border: 1px solid #848484; margin-left: 10px;" href="{% url 'profile' %}">Dashboard</a>
+                            </li>
+
                 <li class="nav-item"><a class="nav-link js-scroll-trigger body-text" href="{% url 'help' %}">Help</a>
                 </li>
 
