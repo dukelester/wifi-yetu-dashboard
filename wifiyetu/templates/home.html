@@ -117,8 +117,8 @@
         <li class="sidebar-brand"><a class="js-scroll-trigger highlight"
                                      href="{%  url 'home' %}">WifiYetu<strong>Hotspot</strong></a></li>
         <hr>
-        <!--        <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="user/register/">Register</a></li>-->
-        <!--        <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="user/login/">Login</a></li>-->
+                <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="{% url 'signUp' %}">Register</a></li>
+                <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="{% url 'signIn' %}">Login</a></li>
         <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="{% url 'help' %}">Help</a></li>
     </ul>
 </nav>
