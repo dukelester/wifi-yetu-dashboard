@@ -713,16 +713,16 @@
                             </div>
                             <div class="card-body">
                                 <form action="{% url 'reset_password' %}" method="post">{% csrf_token %}
-                                    <input type='hidden' name='csrfmiddlewaretoken' value='crpdxksO0B82hkhT9Eo3ehstdGwMehQPH6Gw8dz73EsYNE1WMakqUUscuj6r5NT9' />
+
 
 
                                     <div class="md-form">
                                         <label for="id_old_password">Old password</label>
-                                        <input type="password" name="old_password" class="form-control" title="" required="" id="id_old_password" autocomplete="off">
+                                        <input type="password" name="password" class="form-control" title="" required="" id="id_old_password" autocomplete="off">
                                     </div>
                                     <div class="md-form">
                                         <label for="id_new_password1">New password</label>
-                                        <input type="password" name="new_password1" class="form-control" title="" required=""  id="id_new_password1">
+                                        <input type="password" name="password1" class="form-control" title="" required=""  id="id_new_password1">
                                     </div>
                                     <div class="md-form">
                                         <label for="id_new_password2">New password confirmation</label>
