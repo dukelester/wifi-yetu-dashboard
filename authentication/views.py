@@ -1,9 +1,10 @@
 # -*- encoding: utf-8 -*-
 import json
 
+import requests
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
-from django.contrib.sites import requests
+# from django.contrib.sites import requests
 from django.shortcuts import render
 
 # Create your views here.
