@@ -1,7 +1,8 @@
 # -*- encoding: utf-8 -*-
 
 from django.contrib import admin
-from django.urls import path, include  # add this
+from django.urls import path, include
+from wifiyetu.views import  admindashboard# add this
 
 # from mpesa.urls import mpesa_urls
 
@@ -15,6 +16,7 @@ urlpatterns = [
     path("", include('wifiyetu.urls')),
     path("mpesa2", include('mpesa_api.urls')),
     path('social-auth', include('social_django.urls', namespace='social')),
+
 
 
 ]

@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 from django.conf.urls import url
 from django.urls import path, include
-from .views import login_view, user_registration,google_login
+from .views import login_view, user_registration,google_login,admin_login_view
 from django.contrib.auth.views import LogoutView
 from django.contrib.auth import views as auth_views
 
@@ -10,6 +10,7 @@ urlpatterns = [
     path('registeruser/', user_registration, name="registeruser"),
     path("logout/", LogoutView.as_view(), name="logout"),
     path("google", google_login, name="google_login"),
+    path('admin_login_view',admin_login_view,name='admin_login_view')
     # url('^', include('django.contrib.auth.urls')),
 
     # password reset.

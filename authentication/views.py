@@ -317,3 +317,62 @@ def password_reset_complete(request):
 # def logoutfunction(request):
 #     logout(request)
 #     return redirect('/')
+
+
+
+def admin_login_view(request):
+    # form = LoginForm(request.POST or None)
+    #
+    # msg = None
+    #
+    # if request.method == "POST":
+    #
+    #     if form.is_valid():
+    #         username = form.cleaned_data.get("username")
+    #         password = form.cleaned_data.get("password")
+    #         user = authenticate(username=username, password=password)
+    #         if user is not None:
+    #
+    #             login(request, user)
+    #             return redirect("/dashboard/")
+    #         else:
+    #             # msg = 'Invalid credentials'
+    #             messages.success(request, 'invalid credentials!')
+    #             return render(request, "accounts/login.html", {"form": form})
+    #     else:
+    #         msg = 'Error validating the form'
+    #
+    #         return render(request, "accounts/login.html", {"form": form, "msg": msg})
+    #
+    if request.method == 'POST':
+        email = request.POST['email']
+        password = request.POST['password']
+        print(email,password)
+
+        user =auth.authenticate( username = email, password = password)
+        print(user)
+
+        if user is not None:
+            if request.user.is_superuser:
+
+                login(request, user)
+                return redirect('dashboard')
+
+            else:
+                return HttpResponse('This page is only accessible to admins')
+
+
+
+        else:
+
+            messages.warning(request, 'Incorrect username/password!. Note:this page is only accessible to admins')
+
+            return render(request, 'sign-in-admin.html')
+
+
+
+    else:
+
+        return render(request,'sign-in-admin.html')
+
+

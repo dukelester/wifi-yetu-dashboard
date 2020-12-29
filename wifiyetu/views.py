@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 from django.shortcuts import render
 from  authentication.models import UserProfile
 
@@ -44,13 +46,12 @@ def captiveloginPage_view(request):
 def portalLoginPage_view(request):
     return render(request, 'portalLogin.html')
 
+
+@login_required()
 def profileview(request):
 
-    profile=UserProfile.objects.filter(user=request.user)
-    context={
-        'profile':profile,
-    }
-    return render(request,'profile.html',context)
+
+    return render(request,'profile.html')
 
 def marketting(request):
     return render(request, 'marketting.html')
@@ -66,4 +67,13 @@ def  deletepackage(request):
 
 def charts(request):
     return render(request, 'charts.html')
+
+@login_required()
+def admindashboard(request):
+    if request.user.is_superuser:
+        return render(request, '')
+    else:
+        return HttpResponse('This page is only accessible to admins')
+
+
 

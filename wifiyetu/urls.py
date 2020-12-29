@@ -18,4 +18,5 @@ urlpatterns = [
     path('deletepackage',deletepackage,name='deletepackages'),
     path('editpackage',editpackage,name='editpackages'),
     path('marketting',marketting,name='marketting'),
+
     ]
