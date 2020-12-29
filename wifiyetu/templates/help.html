@@ -176,36 +176,42 @@
     
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-    <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="{% url 'home' %}">
-            <span class="open-nav highlight">
-                WifiYetu<strong>Hotspot</strong>
-            </span>
-        </a>
-        <button class="navbar-toggler navbar-toggler-right body-text" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            Menu
-            <i class="fa fa-bars"></i>
-        </button>
+   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container"><a class="navbar-brand js-scroll-trigger" href="/"><span
+                    class="open-nav highlight">WifiYetu<strong>Hotspot</strong></span></a>
+        <button class="navbar-toggler navbar-toggler-right body-text" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">Menu<i class="fa fa-bars"></i></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger body-text waves-effect waves-light" style="border: 1px solid #848484;" href="{% url 'register' %}">Register</a>
+
+<!--                    <li class="nav-item pr-2"><a class="nav-link js-scroll-trigger body-text waves-effect waves-light"-->
+<!--                                                 style="border: 1px solid #848484;"-->
+<!--                                                 href="/"></a>-->
+<!--                    </li>-->
+
+                    {% if request.user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger body-text waves-effect waves-light"
+                                                    style="border: 1px solid #848484;" href="{% url 'logout' %}">logout</a>
+                            </li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger body-text" href="{% url 'help' %}">Help</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger body-text" href="{% url 'portalLogin' %}">Login</a>
+
+                {% else %}
+                 <li class="nav-item"><a class="nav-link js-scroll-trigger body-text waves-effect waves-light"
+                                            style="border: 1px solid #848484;" href="{% url 'signUp' %}">Register</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger body-text"
+                                            href="{% url 'signIn' %}">Login</a></li>
+
+                <li class="nav-item"><a class="nav-link js-scroll-trigger body-text" href="{% url 'help' %}">Help</a>
                 </li>
-                
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger body-text" href="{% url 'help' %}">Help</a>
-                </li>
+                {% endif %}
+
             </ul>
         </div>
     </div>
 </nav>
-
 <!-- Navigation -->
 <a class="menu-toggle rounded" href="#">
     <i class="fas fa-bars"></i>

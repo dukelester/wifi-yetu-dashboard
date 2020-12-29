@@ -196,7 +196,7 @@
             <div class="sidebar-brand-icon">
                 <i class="fas fa-crown"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">WifiYetu <sup>Admin</sup></div>
+            <div class="sidebar-brand-text mx-3">WifiYetu </sup></div>
         </a>
 
         <!-- Divider -->
@@ -206,68 +206,68 @@
 
         <li class="nav-item">
 
-            <a class="nav-link" href="{% url 'dashboard' %}">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span>
+            <a class="nav-link" href="{% url 'home' %}">
+                <i class="fas fa-fw fa-gift"></i>
+                <span>Buy Packages</span>
             </a>
         </li>
 
-        <!-- Divider -->
-        <hr class="sidebar-divider">
+<!--        &lt;!&ndash; Divider &ndash;&gt;-->
+<!--        <hr class="sidebar-divider">-->
 
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Statistics
-        </div>
+<!--        &lt;!&ndash; Heading &ndash;&gt;-->
+<!--        <div class="sidebar-heading">-->
+<!--            Statistics-->
+<!--        </div>-->
 
-        <!-- Nav Item - Charts -->
+<!--        &lt;!&ndash; Nav Item - Charts &ndash;&gt;-->
 
-        <li class="nav-item">
+<!--        <li class="nav-item">-->
 
-            <a class="nav-link" href="/dashboard/charts/">
-                <i class="fas fa-fw fa-chart-area"></i>
-                <span>Charts</span>
-            </a>
-        </li>
+<!--            <a class="nav-link" href="{% url 'charts' %}">-->
+<!--                <i class="fas fa-fw fa-chart-area"></i>-->
+<!--                <span>Charts</span>-->
+<!--            </a>-->
+<!--        </li>-->
 
-        <!-- Nav Item - Tables -->
+<!--        &lt;!&ndash; Nav Item - Tables &ndash;&gt;-->
 
-        <li class="nav-item">
+<!--        <li class="nav-item">-->
 
-            <a class="nav-link" href="/dashboard/datatables/">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Tables</span></a>
-        </li>
-        <!-- Divider -->
-        <hr class="sidebar-divider">
+<!--            <a class="nav-link" href="/dashboard/datatables/">-->
+<!--                <i class="fas fa-fw fa-table"></i>-->
+<!--                <span>Tables</span></a>-->
+<!--        </li>-->
+<!--        &lt;!&ndash; Divider &ndash;&gt;-->
+<!--        <hr class="sidebar-divider">-->
 
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Online Marketing
-        </div>
+<!--        &lt;!&ndash; Heading &ndash;&gt;-->
+<!--        <div class="sidebar-heading">-->
+<!--            Online Marketing-->
+<!--        </div>-->
 
 
-        <li class="nav-item">
+<!--        <li class="nav-item">-->
 
-            <a class="nav-link" href="/dashboard/marketing/">
-                <i class="far fa-envelope-open"></i>
-                <span>Messaging</span>
-            </a>
-        </li>
-        <!-- Divider -->
-        <hr class="sidebar-divider">
+<!--            <a class="nav-link" href="{% url 'marketting' %}">-->
+<!--                <i class="far fa-envelope-open"></i>-->
+<!--                <span>Messaging</span>-->
+<!--            </a>-->
+<!--        </li>-->
+<!--        &lt;!&ndash; Divider &ndash;&gt;-->
+<!--        <hr class="sidebar-divider">-->
 
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Settings
-        </div>
+<!--        &lt;!&ndash; Heading &ndash;&gt;-->
+<!--        <div class="sidebar-heading">-->
+<!--            Settings-->
+<!--        </div>-->
 
 
         <li class="nav-item active">
 
-            <a class="nav-link" href="/dashboard/profile/">
-                <i class="fas fa-cog"> </i>
-                <span>Settings</span>
+            <a class="nav-link" href="{% url 'logout' %}">
+                <i class="fas fa-sign-out"> </i>
+                <span>Log out</span>
             </a>
         </li>
 
@@ -294,13 +294,30 @@
                 </button>
 
                 <!-- Topbar Navbar -->
+                                        <h6>Hello {{ user }}</h6>
+
                 <ul class="navbar-nav mr-3 ml-md-auto" style="width:100%;justify-content:flex-end;">
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
+                         {% for profile in profile %}
+                        {% if profile.user_picture %}
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
+
+                            <img class="img-profile rounded-circle" src=" {{ profile.user_picture.url }}">
+                        </a>
+
+                        {% else %}
+
+
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+
                             <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                         </a>
+                        {% endif %}
+                        {% endfor %}
+
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right border-0 shadow animated--grow-in" aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="/">
@@ -315,6 +332,9 @@
                             </a>
                         </div>
                     </li>
+
+
+
                 </ul>
             </nav>
 
@@ -325,332 +345,332 @@
                     </div>
                 </div>
                 <!-- Packages Table -->
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card border-0 shadow mb-4">
-                            <div class="card-header border-0 py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">
-                                    <i class="fas fa-table"></i> Packages
-                                </h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table" id="packages-table" width="100%" cellspacing="0">
-                                        <thead>
-                                        <tr>
-                                            <th>Title</th>
-                                            <th>Speed</th>
-                                            <th>Downloads</th>
-                                            <th>Valid for</th>
-                                            <th>Price</th>
-                                            <th>Valid for(in Seconds)</th>
-                                            <th>User Profile</th>
-                                            <th>Delete</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>
-                                                <button id="1" class="btn link-btn" onclick="window.open('/dashboard/package/edit/', 'openWindow', 'width=650,height=830');"></button>
-                                            </td>
-                                            <td><?php echo $packages['speed']; ?></td>
-                                            <td><?php echo $packages['downloads']; ?></td>
-                                            <td><?php echo $packages['valid_for']; ?></td>
-                                            <td><?php echo $packages['price']; ?></td>
-                                            <td><?php echo $packages['valid_for']; ?></td>
-                                            <td><?php echo $packages['user_profile']; ?></td>
-                                            <td style="padding: 0.7rem 0;" class="center-items">
-                                                <a href="/dashboard/package/delete/" id="" class="btn btn-sm btn-danger delete-package">Delete</a>
-                                            </td>
-                                        </tr>
-                                        <?php }
-                                        } ?>
+<!--                <div class="row">-->
+<!--                    <div class="col-md-12">-->
+<!--                        <div class="card border-0 shadow mb-4">-->
+<!--                            <div class="card-header border-0 py-3 d-flex flex-row align-items-center justify-content-between">-->
+<!--                                <h6 class="m-0 font-weight-bold text-primary">-->
+<!--                                    <i class="fas fa-table"></i> Packages-->
+<!--                                </h6>-->
+<!--                            </div>-->
+<!--                            <div class="card-body">-->
+<!--                                <div class="table-responsive">-->
+<!--                                    <table class="table" id="packages-table" width="100%" cellspacing="0">-->
+<!--                                        <thead>-->
+<!--                                        <tr>-->
+<!--                                            <th>Title</th>-->
+<!--                                            <th>Speed</th>-->
+<!--                                            <th>Downloads</th>-->
+<!--                                            <th>Valid for</th>-->
+<!--                                            <th>Price</th>-->
+<!--                                            <th>Valid for(in Seconds)</th>-->
+<!--                                            <th>User Profile</th>-->
+<!--                                            <th>Delete</th>-->
+<!--                                        </tr>-->
+<!--                                        </thead>-->
+<!--                                        <tbody>-->
+<!--                                        <tr>-->
+<!--                                            <td>-->
+<!--                                                <button id="1" class="btn link-btn" onclick="window.open('/dashboard/package/edit/', 'openWindow', 'width=650,height=830');"></button>-->
+<!--                                            </td>-->
+<!--                                            <td><?php echo $packages['speed']; ?></td>-->
+<!--                                            <td><?php echo $packages['downloads']; ?></td>-->
+<!--                                            <td><?php echo $packages['valid_for']; ?></td>-->
+<!--                                            <td><?php echo $packages['price']; ?></td>-->
+<!--                                            <td><?php echo $packages['valid_for']; ?></td>-->
+<!--                                            <td><?php echo $packages['user_profile']; ?></td>-->
+<!--                                            <td style="padding: 0.7rem 0;" class="center-items">-->
+<!--                                                <a href="{% url 'deletepackages' %}" id="" class="btn btn-sm btn-danger delete-package">Delete</a>-->
+<!--                                            </td>-->
+<!--                                        </tr>-->
+<!--                                        <?php }-->
+<!--                                        } ?>-->
 
-                                        <tr>
-                                            <td>
-                                                <button id="0" class="btn link-btn" onclick="window.open('/dashboard/package/add/', 'openWindow', 'width=650,height=830');">New Package</button>
-                                            </td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <?php
-                            $dat = $packages['updated'];
-                            $updated = date('d M Y H:i');
- ?>
-                            <div class="card-footer small text-muted">Updated on <?php echo $updated; ?></div>
-                        </div>
-                    </div>
-                </div>
+<!--                                        <tr>-->
+<!--                                            <td>-->
+<!--                                                <button id="0" class="btn link-btn" onclick="window.open('/dashboard/package/add/', 'openWindow', 'width=650,height=830');">New Package</button>-->
+<!--                                            </td>-->
+<!--                                            <td></td>-->
+<!--                                            <td></td>-->
+<!--                                            <td></td>-->
+<!--                                            <td></td>-->
+<!--                                            <td></td>-->
+<!--                                            <td></td>-->
+<!--                                            <td></td>-->
+<!--                                        </tr>-->
+<!--                                        </tbody>-->
+<!--                                    </table>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <?php-->
+<!--                            $dat = $packages['updated'];-->
+<!--                            $updated = date('d M Y H:i');-->
+<!-- ?>-->
+<!--                            <div class="card-footer small text-muted">Updated on <?php echo $updated; ?></div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
                 <!-- Profile Settings -->
-                <div class="row center-items">
-                    <div class="col-md-12">
-                        <div class="card my-3 border-0 shadow">
-                            <div class="card-header border-0 flex-row align-items-center justify-content-between">
-                                <h5 class="m-0 font-weight-bold text-primary"> <i class="fas fa-cogs"> </i> Profile Settings</h5>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6 left-section px-4">
+<!--                <div class="row center-items">-->
+<!--                    <div class="col-md-12">-->
+<!--                        <div class="card my-3 border-0 shadow">-->
+<!--                            <div class="card-header border-0 flex-row align-items-center justify-content-between">-->
+<!--                                <h5 class="m-0 font-weight-bold text-primary"> <i class="fas fa-cogs"> </i> Profile Settings</h5>-->
+<!--                            </div>-->
+<!--                            <div class="card-body">-->
+<!--                                <div class="row">-->
+<!--                                    <div class="col-md-6 left-section px-4">-->
 
-                                        <form action="#" method="post" id="mikrotik-form">
-                                            <input type='hidden' name='csrfmiddlewaretoken' value='crpdxksO0B82hkhT9Eo3ehstdGwMehQPH6Gw8dz73EsYNE1WMakqUUscuj6r5NT9' />
-                                            <h3>Mikrotik Settings</h3>
-                                            <div class="md-form">
-                                                <label for="id_ddns_name">Mikrotik DDNS Name</label>
-                                                <input type="text" name="ddns_name" value="ddns_name" maxlength="100" class="form-control" title="" id="id_ddns_name">
-                                            </div>
-                                            <div class="md-form">
-                                                <label for="id_m_port">Mikrotik Port</label>
-                                                <input type="number" name="m_port" value="port" maxlength="100" class="form-control" title="" id="id_m_port">
-                                            </div>
-                                            <div class="md-form">
-                                                <label for="id_m_username">Mikrotik Username</label>
-                                                <input type="text" name="m_username" value="<?php echo $mikrotik_setting['mikrotik_username']; ?>" maxlength="100" class="form-control" title="" id="id_m_username">
-                                            </div>
-                                            <div class="md-form">
-                                                <label for="id_m_password">Mikrotik Password</label>
-                                                <input type="password" name="m_password" value="mikrotik_password" maxlength="100" class="form-control" title="" id="id_m_password">
-                                            </div>
-                                            <div class="md-form">
-                                                <label for="id_hotspot_address">Hotspot Address</label>
-                                                <input type="text" name="hotspot_address" value="hotspot_address" maxlength="100" class="form-control" title="" id="id_hotspot_address">
-                                            </div>
-                                            <div class="md-form text-center">
-                                                <input type="submit" value="Save" class="btn btn-primary waves-effect">
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="col-md-6 px-4">
-                                        <h3 class="text-center">Check connection to your Mikrotik Router</h3>
-                                        <p class="text-center"><a tabindex="0" role="button" id="connection" class="btn btn-elegant Ripple-parent ml-4">Test Connection</a></p>
-                                        <div id="results" class="remove">
-                                            <ul id="connection-results" class="list-unstyled note">
-                                            </ul>
-                                            <p class="small text-center" id="help-text">Hotspot User profiles available in your Router</p>
-                                            <ul id="user-profiles" class="list-unstyled note">
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row my-5">
-                                    <div class="col-md-12">
-                                        <h3 class="text-center">Active Users List</h3>
-                                        <div class="table-responsive" id="active-users">
-                                            <p class="text-center">Active users</p>
-                                            <table class="table" id="active-users-table" width="100%" cellspacing="0">
-                                                <thead>
-                                                <tr>
-                                                    <th>User</th>
-                                                    <th>Login Method</th>
-                                                    <th>Ip Address</th>
-                                                    <th>Uptime</th>
-                                                    <th>Idle Time</th>
-                                                    <th>Downloaded</th>
-                                                    <th>Uploaded</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody id="active-body">
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row my-5">
-                                    <div class="col-md-6 left-section px-4">
-                                        <?php
-                                        $sql = "SELECT * FROM branding_settings where id = 1";
-                                        $result = mysqli_query($conn, $sql);
-                                        $branding = mysqli_fetch_assoc($result);
-                                        ?>
-                                        <form action="#" method="post" id="branding-form">
-                                            <input type='hidden' name='csrfmiddlewaretoken' value='crpdxksO0B82hkhT9Eo3ehstdGwMehQPH6Gw8dz73EsYNE1WMakqUUscuj6r5NT9' />
-                                            <h3>Branding Settings</h3>
-                                            <div class="md-form">
-                                                <label for="id_first_brand_name">First brand name</label>
-                                                <input type="text" name="first_brand_name" value="<?php echo $branding['first_brand_name']; ?>" maxlength="20" class="form-control"
-                                                       title="" required="" id="id_first_brand_name">
-                                            </div>
-                                            <div class="md-form">
-                                                <label for="id_second_brand_name">Second brand name</label>
-                                                <input type="text" name="second_brand_name" value="second_brand_name" maxlength="20" class="form-control"
-                                                       title="" required="" id="id_second_brand_name">
-                                            </div>
-                                            <div class="md-form">
-                                                <label for="id_phone_number">Phone Number</label>
-                                                <input type="text" name="phone_number" value="phone_number" class="form-control" title="Start with 2547XXXXXXXX Unlock your phone before clicking pay."
-                                                       required="" id="id_phone_number">
-                                                <small class="form-text text-muted">
-                                                    <li>Start with 2547XXXXXXXX</li>
-                                                </small>
-                                            </div>
-                                            <div class="md-form">
-                                                <label for="id_facebook">Facebook</label>
-                                                <input type="text" name="facebook" value="facebook" maxlength="100" class="form-control" title="" id="id_facebook">
-                                            </div>
-                                            <div class="md-form">
-                                                <label for="id_instagram">Instagram</label>
-                                                <input type="text" name="instagram" value="instagram" maxlength="100" class="form-control" title="" id="id_instagram">
-                                            </div>
-                                            <div class="md-form">
-                                                <label for="id_twitter">Twitter</label>
-                                                <input type="text" name="twitter" value="twitter" maxlength="100" class="form-control" title="" id="id_twitter">
-                                            </div>
-                                            <div class="md-form">
-                                                <label for="id_email_address">Email Address</label>
-                                                <input type="text" name="email_address"
-                                                       value="email_address" maxlength="100"
-                                                       class="form-control" title="" required="" id="id_email_address">
-                                                <small class="text-muted">Used when someone makes contact, or getting
-                                                    notifications after payment has been received</small>
-                                            </div>
-                                            <div class="md-form text-center">
-                                                <input type="submit" value="Save" class="btn btn-primary waves-effect">
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="col-md-6 px-4">
+<!--                                        <form action="#" method="post" id="mikrotik-form">-->
+<!--                                            <input type='hidden' name='csrfmiddlewaretoken' value='crpdxksO0B82hkhT9Eo3ehstdGwMehQPH6Gw8dz73EsYNE1WMakqUUscuj6r5NT9' />-->
+<!--                                            <h3>Mikrotik Settings</h3>-->
+<!--                                            <div class="md-form">-->
+<!--                                                <label for="id_ddns_name">Mikrotik DDNS Name</label>-->
+<!--                                                <input type="text" name="ddns_name" value="ddns_name" maxlength="100" class="form-control" title="" id="id_ddns_name">-->
+<!--                                            </div>-->
+<!--                                            <div class="md-form">-->
+<!--                                                <label for="id_m_port">Mikrotik Port</label>-->
+<!--                                                <input type="number" name="m_port" value="port" maxlength="100" class="form-control" title="" id="id_m_port">-->
+<!--                                            </div>-->
+<!--                                            <div class="md-form">-->
+<!--                                                <label for="id_m_username">Mikrotik Username</label>-->
+<!--                                                <input type="text" name="m_username" value="<?php echo $mikrotik_setting['mikrotik_username']; ?>" maxlength="100" class="form-control" title="" id="id_m_username">-->
+<!--                                            </div>-->
+<!--                                            <div class="md-form">-->
+<!--                                                <label for="id_m_password">Mikrotik Password</label>-->
+<!--                                                <input type="password" name="m_password" value="mikrotik_password" maxlength="100" class="form-control" title="" id="id_m_password">-->
+<!--                                            </div>-->
+<!--                                            <div class="md-form">-->
+<!--                                                <label for="id_hotspot_address">Hotspot Address</label>-->
+<!--                                                <input type="text" name="hotspot_address" value="hotspot_address" maxlength="100" class="form-control" title="" id="id_hotspot_address">-->
+<!--                                            </div>-->
+<!--                                            <div class="md-form text-center">-->
+<!--                                                <input type="submit" value="Save" class="btn btn-primary waves-effect">-->
+<!--                                            </div>-->
+<!--                                        </form>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-md-6 px-4">-->
+<!--                                        <h3 class="text-center">Check connection to your Mikrotik Router</h3>-->
+<!--                                        <p class="text-center"><a tabindex="0" role="button" id="connection" class="btn btn-elegant Ripple-parent ml-4">Test Connection</a></p>-->
+<!--                                        <div id="results" class="remove">-->
+<!--                                            <ul id="connection-results" class="list-unstyled note">-->
+<!--                                            </ul>-->
+<!--                                            <p class="small text-center" id="help-text">Hotspot User profiles available in your Router</p>-->
+<!--                                            <ul id="user-profiles" class="list-unstyled note">-->
+<!--                                            </ul>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <hr>-->
+<!--                                <div class="row my-5">-->
+<!--                                    <div class="col-md-12">-->
+<!--                                        <h3 class="text-center">Active Users List</h3>-->
+<!--                                        <div class="table-responsive" id="active-users">-->
+<!--                                            <p class="text-center">Active users</p>-->
+<!--                                            <table class="table" id="active-users-table" width="100%" cellspacing="0">-->
+<!--                                                <thead>-->
+<!--                                                <tr>-->
+<!--                                                    <th>User</th>-->
+<!--                                                    <th>Login Method</th>-->
+<!--                                                    <th>Ip Address</th>-->
+<!--                                                    <th>Uptime</th>-->
+<!--                                                    <th>Idle Time</th>-->
+<!--                                                    <th>Downloaded</th>-->
+<!--                                                    <th>Uploaded</th>-->
+<!--                                                </tr>-->
+<!--                                                </thead>-->
+<!--                                                <tbody id="active-body">-->
+<!--                                                </tbody>-->
+<!--                                            </table>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <hr>-->
+<!--                                <div class="row my-5">-->
+<!--                                    <div class="col-md-6 left-section px-4">-->
+<!--                                        <?php-->
+<!--                                        $sql = "SELECT * FROM branding_settings where id = 1";-->
+<!--                                        $result = mysqli_query($conn, $sql);-->
+<!--                                        $branding = mysqli_fetch_assoc($result);-->
+<!--                                        ?>-->
+<!--                                        <form action="#" method="post" id="branding-form">-->
+<!--                                            <input type='hidden' name='csrfmiddlewaretoken' value='crpdxksO0B82hkhT9Eo3ehstdGwMehQPH6Gw8dz73EsYNE1WMakqUUscuj6r5NT9' />-->
+<!--                                            <h3>Branding Settings</h3>-->
+<!--                                            <div class="md-form">-->
+<!--                                                <label for="id_first_brand_name">First brand name</label>-->
+<!--                                                <input type="text" name="first_brand_name" value="<?php echo $branding['first_brand_name']; ?>" maxlength="20" class="form-control"-->
+<!--                                                       title="" required="" id="id_first_brand_name">-->
+<!--                                            </div>-->
+<!--                                            <div class="md-form">-->
+<!--                                                <label for="id_second_brand_name">Second brand name</label>-->
+<!--                                                <input type="text" name="second_brand_name" value="second_brand_name" maxlength="20" class="form-control"-->
+<!--                                                       title="" required="" id="id_second_brand_name">-->
+<!--                                            </div>-->
+<!--                                            <div class="md-form">-->
+<!--                                                <label for="id_phone_number">Phone Number</label>-->
+<!--                                                <input type="text" name="phone_number" value="phone_number" class="form-control" title="Start with 2547XXXXXXXX Unlock your phone before clicking pay."-->
+<!--                                                       required="" id="id_phone_number">-->
+<!--                                                <small class="form-text text-muted">-->
+<!--                                                    <li>Start with 2547XXXXXXXX</li>-->
+<!--                                                </small>-->
+<!--                                            </div>-->
+<!--                                            <div class="md-form">-->
+<!--                                                <label for="id_facebook">Facebook</label>-->
+<!--                                                <input type="text" name="facebook" value="facebook" maxlength="100" class="form-control" title="" id="id_facebook">-->
+<!--                                            </div>-->
+<!--                                            <div class="md-form">-->
+<!--                                                <label for="id_instagram">Instagram</label>-->
+<!--                                                <input type="text" name="instagram" value="instagram" maxlength="100" class="form-control" title="" id="id_instagram">-->
+<!--                                            </div>-->
+<!--                                            <div class="md-form">-->
+<!--                                                <label for="id_twitter">Twitter</label>-->
+<!--                                                <input type="text" name="twitter" value="twitter" maxlength="100" class="form-control" title="" id="id_twitter">-->
+<!--                                            </div>-->
+<!--                                            <div class="md-form">-->
+<!--                                                <label for="id_email_address">Email Address</label>-->
+<!--                                                <input type="text" name="email_address"-->
+<!--                                                       value="email_address" maxlength="100"-->
+<!--                                                       class="form-control" title="" required="" id="id_email_address">-->
+<!--                                                <small class="text-muted">Used when someone makes contact, or getting-->
+<!--                                                    notifications after payment has been received</small>-->
+<!--                                            </div>-->
+<!--                                            <div class="md-form text-center">-->
+<!--                                                <input type="submit" value="Save" class="btn btn-primary waves-effect">-->
+<!--                                            </div>-->
+<!--                                        </form>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-md-6 px-4">-->
 
-                                        <form action="/dashboard/sms/settings/" method="post" id="sms-form">
-                                            <input type='hidden' name='csrfmiddlewaretoken'
-                                                   value='crpdxksO0B82hkhT9Eo3ehstdGwMehQPH6Gw8dz73EsYNE1WMakqUUscuj6r5NT9'/>
-                                            <h3>SMS Settings</h3>
-                                            <div class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" class="custom-control-input" id="africastalking"
-                                                       name="africastalking" checked>
-                                                <label class="custom-control-label" for="africastalking">Africa's
-                                                    Talking</label>
-                                            </div>
-                                            <div class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" class="custom-control-input" id="mspace"
-                                                       name="mspace">
-                                                <label class="custom-control-label" for="mspace">MSpace</label>
-                                            </div>
-                                            <div id="africastalking-section">
-                                                <div class="md-form">
-                                                    <label for="id_sms_username">Africas Talking Username</label>
-                                                    <input type="text" name="sms_username"
-                                                           value="username" maxlength="100"
-                                                           class="form-control" title="" id="id_sms_username">
-                                                </div>
-                                                <div class="md-form">
-                                                    <label for="id_sms_key">Africas Talking Api Key</label>
-                                                    <input type="text" name="sms_key"
-                                                           value="api_key" maxlength="100"
-                                                           class="form-control" title="" id="id_sms_key">
-                                                </div>
-                                                <div class="md-form">
-                                                    <label for="id_africastlkn_sender">Africas Talking SenderID</label>
-                                                    <input type="text" name="africastlkn_sender"
-                                                           value="sender_id" maxlength="100"
-                                                           class="form-control" title="" id="id_africastlkn_sender">
-                                                </div>
-                                            </div>
-                                            <div id="mspace-section">
-                                                <div class="md-form">
-                                                    <label for="id_sms_username">Mspace Username</label>
-                                                    <input type="text" name="mspace_username" value="" maxlength="100"
-                                                           class="form-control" title="" id="id_mspace_username">
-                                                </div>
-                                                <div class="md-form">
-                                                    <label for="id_mspace_password">Mspace Password</label>
-                                                    <input type="password" name="mspace_password" value=""
-                                                           maxlength="100" class="form-control" title=""
-                                                           id="id_mspace_password">
-                                                </div>
-                                                <div class="md-form">
-                                                    <label for="id_mspace_sender_id">Mspace Sender Id</label>
-                                                    <input type="text" name="mspace_sender_id" value="" maxlength="100"
-                                                           class="form-control" title="" id="id_mspace_sender_id">
-                                                </div>
-                                            </div>
-                                            <div class="switch">
-                                                <label>
+<!--                                        <form action="/dashboard/sms/settings/" method="post" id="sms-form">-->
+<!--                                            <input type='hidden' name='csrfmiddlewaretoken'-->
+<!--                                                   value='crpdxksO0B82hkhT9Eo3ehstdGwMehQPH6Gw8dz73EsYNE1WMakqUUscuj6r5NT9'/>-->
+<!--                                            <h3>SMS Settings</h3>-->
+<!--                                            <div class="custom-control custom-radio custom-control-inline">-->
+<!--                                                <input type="radio" class="custom-control-input" id="africastalking"-->
+<!--                                                       name="africastalking" checked>-->
+<!--                                                <label class="custom-control-label" for="africastalking">Africa's-->
+<!--                                                    Talking</label>-->
+<!--                                            </div>-->
+<!--                                            <div class="custom-control custom-radio custom-control-inline">-->
+<!--                                                <input type="radio" class="custom-control-input" id="mspace"-->
+<!--                                                       name="mspace">-->
+<!--                                                <label class="custom-control-label" for="mspace">MSpace</label>-->
+<!--                                            </div>-->
+<!--                                            <div id="africastalking-section">-->
+<!--                                                <div class="md-form">-->
+<!--                                                    <label for="id_sms_username">Africas Talking Username</label>-->
+<!--                                                    <input type="text" name="sms_username"-->
+<!--                                                           value="username" maxlength="100"-->
+<!--                                                           class="form-control" title="" id="id_sms_username">-->
+<!--                                                </div>-->
+<!--                                                <div class="md-form">-->
+<!--                                                    <label for="id_sms_key">Africas Talking Api Key</label>-->
+<!--                                                    <input type="text" name="sms_key"-->
+<!--                                                           value="api_key" maxlength="100"-->
+<!--                                                           class="form-control" title="" id="id_sms_key">-->
+<!--                                                </div>-->
+<!--                                                <div class="md-form">-->
+<!--                                                    <label for="id_africastlkn_sender">Africas Talking SenderID</label>-->
+<!--                                                    <input type="text" name="africastlkn_sender"-->
+<!--                                                           value="sender_id" maxlength="100"-->
+<!--                                                           class="form-control" title="" id="id_africastlkn_sender">-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                            <div id="mspace-section">-->
+<!--                                                <div class="md-form">-->
+<!--                                                    <label for="id_sms_username">Mspace Username</label>-->
+<!--                                                    <input type="text" name="mspace_username" value="" maxlength="100"-->
+<!--                                                           class="form-control" title="" id="id_mspace_username">-->
+<!--                                                </div>-->
+<!--                                                <div class="md-form">-->
+<!--                                                    <label for="id_mspace_password">Mspace Password</label>-->
+<!--                                                    <input type="password" name="mspace_password" value=""-->
+<!--                                                           maxlength="100" class="form-control" title=""-->
+<!--                                                           id="id_mspace_password">-->
+<!--                                                </div>-->
+<!--                                                <div class="md-form">-->
+<!--                                                    <label for="id_mspace_sender_id">Mspace Sender Id</label>-->
+<!--                                                    <input type="text" name="mspace_sender_id" value="" maxlength="100"-->
+<!--                                                           class="form-control" title="" id="id_mspace_sender_id">-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                            <div class="switch">-->
+<!--                                                <label>-->
 
-                                                    <input type="checkbox"
-                                                           checked name="transaction_sms" id="id_transaction_sms">
+<!--                                                    <input type="checkbox"-->
+<!--                                                           checked name="transaction_sms" id="id_transaction_sms">-->
 
-                                                    <span class="lever"></span>
-                                                    Transaction SMS
-                                                </label>
-                                            </div>
-                                            <small class="text-muted">Send SMS to customer when a transaction is
-                                                completed</small>
-                                            <div class="switch">
-                                                <label>
-                                                    <input type="checkbox" name="reminder_sms" id="id_reminder_sms">
+<!--                                                    <span class="lever"></span>-->
+<!--                                                    Transaction SMS-->
+<!--                                                </label>-->
+<!--                                            </div>-->
+<!--                                            <small class="text-muted">Send SMS to customer when a transaction is-->
+<!--                                                completed</small>-->
+<!--                                            <div class="switch">-->
+<!--                                                <label>-->
+<!--                                                    <input type="checkbox" name="reminder_sms" id="id_reminder_sms">-->
 
-                                                    <span class="lever"></span>
-                                                    Reminder SMS
-                                                </label>
-                                            </div>
-                                            <small class="text-muted">Remind subscribers when their subscriptions are about to expire. Make sure your connection to the router is on before switching this part on</small>
-                                            <div class="form-group">
-                                                <label for="id_reminder_frequency">Time to expiration</label>
-                                                <select name="reminder_frequency" value="24" class="form-control" id="id_reminder_frequency">
+<!--                                                    <span class="lever"></span>-->
+<!--                                                    Reminder SMS-->
+<!--                                                </label>-->
+<!--                                            </div>-->
+<!--                                            <small class="text-muted">Remind subscribers when their subscriptions are about to expire. Make sure your connection to the router is on before switching this part on</small>-->
+<!--                                            <div class="form-group">-->
+<!--                                                <label for="id_reminder_frequency">Time to expiration</label>-->
+<!--                                                <select name="reminder_frequency" value="24" class="form-control" id="id_reminder_frequency">-->
 
-                                                    <option value="24" selected>Within 24 hours</option>
+<!--                                                    <option value="24" selected>Within 24 hours</option>-->
 
-                                                    <option value="48">Within 48 hours</option>
+<!--                                                    <option value="48">Within 48 hours</option>-->
 
-                                                </select>
-                                            </div>
-                                            <div class="md-form text-center">
+<!--                                                </select>-->
+<!--                                            </div>-->
+<!--                                            <div class="md-form text-center">-->
 
-                                                <input type="submit" value="Save" class="btn btn-primary waves-effect">
+<!--                                                <input type="submit" value="Save" class="btn btn-primary waves-effect">-->
 
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row my-5">
-                                    <div class="col-md-6 left-section px-4">
-                                        <form action="/dashboard/payment_settings/" method="post" id="payment-form">
-                                            <input type='hidden' name='csrfmiddlewaretoken' value='crpdxksO0B82hkhT9Eo3ehstdGwMehQPH6Gw8dz73EsYNE1WMakqUUscuj6r5NT9' />
-                                            <h3>Payment Settings</h3>
-                                            <div class="switch">
-                                                <label>
+<!--                                            </div>-->
+<!--                                        </form>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <hr>-->
+<!--                                <div class="row my-5">-->
+<!--                                    <div class="col-md-6 left-section px-4">-->
+<!--                                        <form action="/dashboard/payment_settings/" method="post" id="payment-form">-->
+<!--                                            <input type='hidden' name='csrfmiddlewaretoken' value='crpdxksO0B82hkhT9Eo3ehstdGwMehQPH6Gw8dz73EsYNE1WMakqUUscuj6r5NT9' />-->
+<!--                                            <h3>Payment Settings</h3>-->
+<!--                                            <div class="switch">-->
+<!--                                                <label>-->
 
-                                                    <input type="checkbox" name="trxn_cost" id="id_trxn_cost">
+<!--                                                    <input type="checkbox" name="trxn_cost" id="id_trxn_cost">-->
 
-                                                    <span class="lever"></span>
-                                                    Transaction Cost
-                                                </label>
-                                            </div>
-                                            <small class="text-muted">Check this if you pay a transaction fee on payments received to get an accurate balance on the dashboard.</small>
-                                            <div class="switch">
-                                                <label>
+<!--                                                    <span class="lever"></span>-->
+<!--                                                    Transaction Cost-->
+<!--                                                </label>-->
+<!--                                            </div>-->
+<!--                                            <small class="text-muted">Check this if you pay a transaction fee on payments received to get an accurate balance on the dashboard.</small>-->
+<!--                                            <div class="switch">-->
+<!--                                                <label>-->
 
-                                                    <input type="checkbox" checked name="get_pay" id="id_get_pay">
+<!--                                                    <input type="checkbox" checked name="get_pay" id="id_get_pay">-->
 
-                                                    <span class="lever"></span>
-                                                    Get payments
-                                                </label>
-                                            </div>
-                                            <small class="text-muted">Check this to accept payments.</small>
-                                            <div class="md-form text-center">
+<!--                                                    <span class="lever"></span>-->
+<!--                                                    Get payments-->
+<!--                                                </label>-->
+<!--                                            </div>-->
+<!--                                            <small class="text-muted">Check this to accept payments.</small>-->
+<!--                                            <div class="md-form text-center">-->
 
-                                                <input type="submit" value="Save" class="btn btn-primary waves-effect">
+<!--                                                <input type="submit" value="Save" class="btn btn-primary waves-effect">-->
 
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<!--                                            </div>-->
+<!--                                        </form>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
                 <!-- User and Password forms -->
                 <div class="row center-items">
                     <!-- User form -->

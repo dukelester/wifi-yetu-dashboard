@@ -9,7 +9,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.forms.utils import ErrorList
 from django.http import HttpResponse
@@ -58,7 +58,7 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
-            return redirect('/')
+            return redirect('profile')
 
 
         else:
@@ -143,7 +143,7 @@ def user_registration(request):
                 user.save()
                 messages.success(request, 'Account created sucessfully!')
 
-                return redirect('authlogin')
+                return redirect('profile')
 
 
     else:
@@ -311,3 +311,9 @@ def password_reset_confirm(request):
 
 def password_reset_complete(request):
     return render(request, 'password_reset_complete.html')
+
+
+#
+# def logoutfunction(request):
+#     logout(request)
+#     return redirect('/')
