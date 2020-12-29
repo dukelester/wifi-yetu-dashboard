@@ -1,0 +1,18 @@
+{% extends "admin/base.html" %}
+{% load i18n static %}
+
+{% block title %}{{ title }} | {% trans "Wifi yetu " %}{% endblock %}
+{% block extrastyle %}
+     <link rel="stylesheet" type="text/css" href="{% static 'admin_color.css' %}"/>
+{% endblock %}
+
+{% block branding %}
+
+ <h1 id="head">
+<!--        <img src="{% static 'img/voicenote.jpg' %}" width="75px" height="75px">-->
+        Wifi Yetu
+
+    </h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

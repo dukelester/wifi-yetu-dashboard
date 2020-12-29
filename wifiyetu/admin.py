@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
+admin.site.site_header= 'Wifi Yetu'
 
 # # Register your models here.
 # from mpesa_api.models import MpesaPayment, BaseModel, MpesaCalls, MpesaCallBacks

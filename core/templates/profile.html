@@ -192,7 +192,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar toggled sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'dashboard' %}">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'profile' %}">
             <div class="sidebar-brand-icon">
                 <i class="fas fa-crown"></i>
             </div>
@@ -712,7 +712,7 @@
                                 <h5 class="m-0 font-weight-bold text-primary"> <i class="fas fa-unlock"> </i> Change Password</h5>
                             </div>
                             <div class="card-body">
-                                <form action="." method="post">
+                                <form action="{% url 'reset_password' %}" method="post">{% csrf_token %}
                                     <input type='hidden' name='csrfmiddlewaretoken' value='crpdxksO0B82hkhT9Eo3ehstdGwMehQPH6Gw8dz73EsYNE1WMakqUUscuj6r5NT9' />
 
 

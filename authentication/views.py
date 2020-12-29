@@ -142,6 +142,8 @@ def user_registration(request):
                                                 )
                 user.save()
                 messages.success(request, 'Account created sucessfully!')
+                user = auth.authenticate(username=email, password=password)
+                login(request,user)
 
                 return redirect('profile')
 

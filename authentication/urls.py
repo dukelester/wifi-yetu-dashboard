@@ -10,7 +10,22 @@ urlpatterns = [
     path('registeruser/', user_registration, name="registeruser"),
     path("logout/", LogoutView.as_view(), name="logout"),
     path("google", google_login, name="google_login"),
-    path('admin_login_view',admin_login_view,name='admin_login_view')
+    path('admin_login_view',admin_login_view,name='admin_login_view'),
+    path('reset_password/',
+         auth_views.PasswordResetView.as_view(),
+         name="reset_password"),
+
+    path('reset_password_sent/',
+         auth_views.PasswordResetDoneView.as_view(),
+         name="password_reset_done"),
+
+    path('reset/<uidb64>/<token>/',
+         auth_views.PasswordResetConfirmView.as_view(),
+         name="password_reset_confirm"),
+
+    path('reset_password_complete/',
+         auth_views.PasswordResetCompleteView.as_view(),
+         name="password_reset_complete"),
     # url('^', include('django.contrib.auth.urls')),
 
     # password reset.
