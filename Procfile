@@ -1,1 +1,1 @@
-web: gunicorn portal_social_auth.wsgi --log-file -
+web: gunicorn wifiyetu.wsgi --log-file -

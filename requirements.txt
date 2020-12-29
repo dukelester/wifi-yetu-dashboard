@@ -30,3 +30,8 @@ gunicorn
 whitenoise
 dj-database-url
 social-auth-app-django
+python-decouple==3.3
+Pillow==8.0.1
+django-rest-framework==0.1.0
+
+
