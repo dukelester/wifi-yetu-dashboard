@@ -1,1 +1,1 @@
-web: gunicorn wifiyetu.wsgi --log-file -
+web: gunicorn core.wsgi --log-file -
